@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0"
+    xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <persistence-unit name="avocatJEE" transaction-type="JTA">
+        <jta-data-source>java:/MysqlAvocatDS</jta-data-source>
+
+        <properties>
+            <!-- PAS de dialect (auto-détecté) -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>

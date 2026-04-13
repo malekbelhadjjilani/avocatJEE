@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Avocat JEE Application</display-name>
+
+    <!-- DataSource Configuration -->
+    <resource-ref>
+        <description>MySQL DataSource</description>
+        <res-ref-name>java:/MysqlAvocatDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+
+</web-app></content>
+<parameter name="filePath">c:\Users\MALEK\OneDrive\Documents\J2EE\workspace2026\avocatJEE\src\main\webapp\WEB-INF\web.xml
