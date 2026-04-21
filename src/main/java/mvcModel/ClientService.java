@@ -3,6 +3,7 @@ package mvcModel;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import entites.Client;
@@ -35,6 +36,16 @@ public class ClientService {
         Client c = em.find(Client.class, id);
         if (c != null) {
             em.remove(c);
+        }
+    }
+    public Client findByEmailAndPassword(String email, String password) {
+        try {
+            return em.createQuery("SELECT c FROM Client c WHERE c.email = :email AND c.password = :password", Client.class)
+                    .setParameter("email", email)
+                    .setParameter("password", password)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
         }
     }
 }

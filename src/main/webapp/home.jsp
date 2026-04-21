@@ -213,7 +213,7 @@
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="Controller?action=all">
             <i class="bi bi-briefcase-fill text-brand-turquoise me-2"></i>
-            <span>AvocatConnect</span>
+            <span>AvocaTN</span>
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
