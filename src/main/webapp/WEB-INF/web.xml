@@ -6,6 +6,22 @@
          version="6.0">
 
     <display-name>Avocat JEE Application</display-name>
+    
+    <servlet>
+        <servlet-name>ChatbotServlet</servlet-name>
+        <servlet-class>mvcController.ChatbotServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChatbotServlet</servlet-name>
+        <url-pattern>/chatbot</url-pattern>
+    </servlet-mapping>
 
-   
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>mvcController.Controller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>
 </web-app>

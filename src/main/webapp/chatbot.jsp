@@ -225,7 +225,7 @@
         
         // Appel API
         try {
-            const response = await fetch('api/chat', {
+            const response = await fetch('${pageContext.request.contextPath}/chatbot', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 body: 'message=' + encodeURIComponent(message)
@@ -233,12 +233,21 @@
             
             const reponse = await response.text();
             
-            // Supprime indicateur et affiche réponse
-            document.getElementById('typing-indicator').remove();
+            // Supprime indicateur
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
+
+            // Vérifie si c'est du HTML (erreur serveur)
+            if (reponse.trim().startsWith('<') || reponse.trim().startsWith('<!DOCTYPE')) {
+                addMessage('Erreur serveur : le service est indisponible.', 'bot');
+                return;
+            }
+            
             addMessage(reponse, 'bot');
             
         } catch (error) {
-            document.getElementById('typing-indicator').remove();
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
             addMessage('Désolé, une erreur est survenue. Veuillez réessayer plus tard.', 'bot');
         }
     }

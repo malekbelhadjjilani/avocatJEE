@@ -23,7 +23,7 @@ async function sendMessage() {
     
     // Appel API - réponse en texte brut
     try {
-        const response = await fetch('api/chat', {
+        const response = await fetch('chatbot', {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: 'message=' + encodeURIComponent(message)
